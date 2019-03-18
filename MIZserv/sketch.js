@@ -45,42 +45,42 @@ function tablica() {
   merc.position(20, 200);
 
   ven.html("Venera: " + masa.value() * 0.903);
-  //ven.style("color", "white");
+  ven.style("color", "white");
   ven.style("font-size", "24pt");
   ven.position(20, 250);
 
   zem.html("Zemlja: " + masa.value() * 1);
-  //zem.style("color", "white");
+  zem.style("color", "white");
   zem.style("font-size", "24pt");
   zem.position(20, 300);
 
   mars.html("Mars: " + masa.value() * 0.38);
-  //mars.style("color", "white");
+  mars.style("color", "white");
   mars.style("font-size", "24pt");
   mars.position(20, 350);
 
   jup.html("Jupiter: " + masa.value() * 2.6375);
-  //jup.style("color", "white");
+  jup.style("color", "white");
   jup.style("font-size", "24pt");
   jup.position(20, 400);
 
   sat.html("Saturn: " + masa.value() * 1.16);
-  //sat.style("color", "white");
+  sat.style("color", "white");
   sat.style("font-size", "24pt");
   sat.position(20, 450);
 
   uran.html("Uran: " + masa.value() * 1.17);
-  //uran.style("color", "white");
+  uran.style("color", "white");
   uran.style("font-size", "24pt");
   uran.position(20, 500);
 
   nep.html("Neptun: " + masa.value() * 1.125);
-  //nep.style("color", "white");
+  nep.style("color", "white");
   nep.style("font-size", "24pt");
   nep.position(20, 550);
 
   moon.html("Mjesec: " + masa.value() * 0.1653);
-  //moon.style("color", "white");
+  moon.style("color", "white");
   moon.style("font-size", "24pt");
   moon.position(20, 600);
 }
