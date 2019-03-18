@@ -40,7 +40,7 @@ function tablica() {
   moon.html("");
 
   merc.html("Merkur: " + masa.value() * 0.38);
-  //merc.style("color", "white");
+  merc.style("color", "red");
   merc.style("font-size", "24pt");
   merc.position(20, 200);
 
