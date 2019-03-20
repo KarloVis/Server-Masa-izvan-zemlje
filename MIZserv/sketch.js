@@ -1,5 +1,6 @@
 let btn;
 let masa;
+let txtmasa;
 let test;
 
 let merc;
@@ -11,9 +12,12 @@ let sat;
 let uran;
 let nep;
 let moon;
+let error;
 
 function setup() {
   createCanvas(300, 300);
+  txtmasa = createP("Unesite svoju masu:");
+  txtmasa.style("font-size","18pt");
   btn = select('#btn');
   masa = createInput("");
 
@@ -26,10 +30,29 @@ function setup() {
   uran = createP("");
   nep = createP("");
   moon = createP("");
+  
+  error = createP("");
 }
 
-function tablica() {
-  merc.html("");
+
+function errorCheck(){
+ test = masa.value() * 1;
+  
+  if (isNaN(test)){	
+    clearTable();
+
+    error.html("PLEASE ENTER A NUMBER");
+    error.style("color","red");
+    error.style("font-size","30pt");
+    error.position(20,200)
+    
+  }else{
+   tablica(); 
+  }
+}
+
+function clearTable(){
+   merc.html("");
   ven.html("");
   zem.html("");
   mars.html("");
@@ -38,6 +61,11 @@ function tablica() {
   uran.html("");
   nep.html("");
   moon.html("");
+  error.html("");
+}
+
+function tablica() {
+  clearTable();
 
   merc.html("Merkur: " + masa.value() * 0.38);
   //merc.style("color", "red");
@@ -88,8 +116,9 @@ function tablica() {
 
 function draw() {
   clear()
-  btn.position(100, 100);
-  masa.position(40, 75);
-  btn.mousePressed(tablica);
+  txtmasa.poition(30,50);
+  btn.position(100, 150);
+  masa.position(40, 125);
+  btn.mousePressed(errorCheck);
 
 }
