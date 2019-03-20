@@ -20,7 +20,7 @@ function setup() {
   txtmasa.style("font-size","18pt");
   btn = select('#btn');
   masa = createInput("");
-
+  
   merc = createP("");
   ven = createP("");
   zem = createP("");
@@ -33,7 +33,6 @@ function setup() {
   
   error = createP("");
 }
-
 
 function errorCheck(){
  test = masa.value() * 1;
@@ -65,10 +64,10 @@ function clearTable(){
 }
 
 function tablica() {
-  clearTable();
+	clearTable();
 
   merc.html("Merkur: " + masa.value() * 0.38);
-  //merc.style("color", "red");
+  //merc.style("color", "white");
   merc.style("font-size", "24pt");
   merc.position(20, 200);
 
@@ -116,7 +115,7 @@ function tablica() {
 
 function draw() {
   clear()
-  txtmasa.poition(30,50);
+  txtmasa.position(30,50)
   btn.position(100, 150);
   masa.position(40, 125);
   btn.mousePressed(errorCheck);
