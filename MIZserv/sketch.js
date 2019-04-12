@@ -1,123 +1,162 @@
-let btn;
-let masa;
-let txtmasa;
-let test;
+let btn, masa, txtmasa, test, error;
+let mercimg,venimg,zemimg,marsimg,jupimg,
+    satimg,uranimg,nepimg,sunimg,bg;
 
-let merc;
-let ven;
-let zem;
-let mars;
-let jup;
-let sat;
-let uran;
-let nep;
-let moon;
-let error;
+
+function preload(){
+  mercimg = loadImage('planet-images/merc.png')
+  venimg = loadImage('planet-images/ven.png')
+  zemimg = loadImage('planet-images/zem.png')
+  marsimg = loadImage('planet-images/mars.png')
+  jupimg = loadImage('planet-images/jup.png')
+  satimg = loadImage('planet-images/sat.png')
+  uranimg = loadImage('planet-images/uran.png')
+  nepimg = loadImage('planet-images/nep.png')
+  sunimg = loadImage('planet-images/sun.png')
+  bg = loadImage('planet-images/universe_bg.png')
+}
 
 function setup() {
-  createCanvas(300, 300);
+  canvas = createCanvas(900, 900);
+  canvas.position(430, 100)
   txtmasa = createP("Unesite svoju masu:");
-  txtmasa.style("font-size","18pt");
+  txtmasa.style("font-size", "18pt");
   btn = select('#btn');
   masa = createInput("");
-  
+
   merc = createP("");
   ven = createP("");
   zem = createP("");
-  mars = createP("");
+  mrs = createP("");
   jup = createP("");
   sat = createP("");
-  uran = createP("");
+  urn = createP("");
   nep = createP("");
   moon = createP("");
-  
   error = createP("");
+
+
+  merkur = new Merkur();
+  venera = new Venera();
+  zemlja = new Zemlja();
+  mars = new Mars();
+  jupiter = new Jupiter();
+  saturn = new Saturn();
+  uran = new Uran();
+  neptun = new Neptun();
 }
-
-function errorCheck(){
- test = masa.value() * 1;
-  
-  if (isNaN(test)){	
-    clearTable();
-
-    error.html("PLEASE ENTER A NUMBER");
-    error.style("color","red");
-    error.style("font-size","30pt");
-    error.position(20,200)
-    
-  }else{
-   tablica(); 
-  }
-}
-
-function clearTable(){
-   merc.html("");
-  ven.html("");
-  zem.html("");
-  mars.html("");
-  jup.html("");
-  sat.html("");
-  uran.html("");
-  nep.html("");
-  moon.html("");
-  error.html("");
-}
-
-function tablica() {
-	clearTable();
-
-  merc.html("Merkur: " + masa.value() * 0.38);
-  //merc.style("color", "white");
-  merc.style("font-size", "24pt");
-  merc.position(20, 200);
-
-  ven.html("Venera: " + masa.value() * 0.903);
-  //ven.style("color", "white");
-  ven.style("font-size", "24pt");
-  ven.position(20, 250);
-
-  zem.html("Zemlja: " + masa.value() * 1);
-  //zem.style("color", "white");
-  zem.style("font-size", "24pt");
-  zem.position(20, 300);
-
-  mars.html("Mars: " + masa.value() * 0.38);
-  //mars.style("color", "white");
-  mars.style("font-size", "24pt");
-  mars.position(20, 350);
-
-  jup.html("Jupiter: " + masa.value() * 2.6375);
-  //jup.style("color", "white");
-  jup.style("font-size", "24pt");
-  jup.position(20, 400);
-
-  sat.html("Saturn: " + masa.value() * 1.16);
-  //sat.style("color", "white");
-  sat.style("font-size", "24pt");
-  sat.position(20, 450);
-
-  uran.html("Uran: " + masa.value() * 1.17);
-  //uran.style("color", "white");
-  uran.style("font-size", "24pt");
-  uran.position(20, 500);
-
-  nep.html("Neptun: " + masa.value() * 1.125);
-  //nep.style("color", "white");
-  nep.style("font-size", "24pt");
-  nep.position(20, 550);
-
-  moon.html("Mjesec: " + masa.value() * 0.1653);
-  //moon.style("color", "white");
-  moon.style("font-size", "24pt");
-  moon.position(20, 600);
-}
-
 
 function draw() {
-  clear()
-  txtmasa.position(30,50)
+  push();
+  translate(width / 2, height / 2)
+  //background(0)
+  image(bg,0,0,width,height)
+  txtmasa.position(30, 50)
   btn.position(100, 150);
   masa.position(40, 125);
   btn.mousePressed(errorCheck);
+  image(sunimg,0,0,100,100)
 
+  let r = 150;
+
+//   for (let i = 0; i < 8; i++) {
+//     noFill();
+//     stroke(255);
+//     ellipse(0, 0, r);
+//     r += 100;
+
+//   }
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  merkur.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  venera.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  zemlja.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  mars.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  jupiter.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  saturn.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  uran.show();
+  pop();
+
+  push();
+  translate(width / 2, height / 2)
+  neptun.show();
+  pop();
+
+}
+
+function mousePressed() {
+  if (merkur.over()) {
+    merc.html("Merkur: " +
+      Number((masa.value() * 0.38).toFixed(2)) + " kg");
+    //merc.style("color", "white");
+    merc.style("font-size", "24pt");
+    merc.position(20, 200);
+  } else if (venera.over()) {
+    ven.html("Venera: " +
+      Number((masa.value() * 0.903).toFixed(2)) + " kg");
+    //ven.style("color", "white");
+    ven.style("font-size", "24pt");
+    ven.position(20, 250);
+  }else if(zemlja.over()){
+    zem.html("Zemlja: " + masa.value() * 1 + "kg");
+  //zem.style("color", "white");
+  zem.style("font-size", "24pt");
+  zem.position(20, 300);
+  }else if(mars.over()){
+   mrs.html("Mars: " +
+    Number((masa.value() * 0.38).toFixed(2)) + " kg");
+  //mars.style("color", "white");
+  mrs.style("font-size", "24pt");
+  mrs.position(20, 350);
+  }else if(jupiter.over()){
+    jup.html("Jupiter: " +
+    Number((masa.value() * 2.6375).toFixed(2)) + " kg");
+  //jup.style("color", "white");
+  jup.style("font-size", "24pt");
+  jup.position(20, 400);
+  }else if(saturn.over()){
+    sat.html("Saturn: " +
+    Number((masa.value() * 1.16).toFixed(2)) + " kg");
+  //sat.style("color", "white");
+  sat.style("font-size", "24pt");
+  sat.position(20, 450);
+  }else if(uran.over()){
+    urn.html("Uran: " +
+    Number((masa.value() * 1.17).toFixed(2)) + " kg");
+  //uran.style("color", "white");
+  urn.style("font-size", "24pt");
+  urn.position(20, 500);
+  }else if(neptun.over()){
+    nep.html("Neptun: " +
+    Number((masa.value() * 1.125).toFixed(2)) + " kg");
+  //nep.style("color", "white");
+  nep.style("font-size", "24pt");
+  nep.position(20, 550);
+  }
 }
