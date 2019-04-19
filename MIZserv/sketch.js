@@ -1,6 +1,6 @@
 let btn, masa, txtmasa, test, error;
 let mercimg,venimg,zemimg,marsimg,jupimg,
-    satimg,uranimg,nepimg,sunimg,bg;
+    satimg,uranimg,nepimg,sunimg,bg,moonimg;
 
 
 function preload(){
@@ -13,12 +13,16 @@ function preload(){
   uranimg = loadImage('planet-images/uran.png')
   nepimg = loadImage('planet-images/nep.png')
   sunimg = loadImage('planet-images/sun.png')
+  moonimg = loadImage('planet-images/moon.png')
   bg = loadImage('planet-images/universe_bg.png')
 }
 
 function setup() {
   canvas = createCanvas(900, 900);
   canvas.position(430, 100)
+  mooncanvas = new Moon();
+  canvasMoon.hide()
+
   txtmasa = createP("Unesite svoju masu:");
   txtmasa.style("font-size", "18pt");
   btn = select('#btn');
@@ -55,7 +59,10 @@ function draw() {
   btn.position(100, 150);
   masa.position(40, 125);
   btn.mousePressed(errorCheck);
+  // fill(255, 255, 0);
+  // noStroke();
   image(sunimg,0,0,100,100)
+  // ellipse(0, 0, 75, 75);
 
   let r = 150;
 
@@ -124,10 +131,10 @@ function mousePressed() {
     ven.style("font-size", "24pt");
     ven.position(20, 250);
   }else if(zemlja.over()){
-    zem.html("Zemlja: " + masa.value() * 1 + "kg");
-  //zem.style("color", "white");
-  zem.style("font-size", "24pt");
-  zem.position(20, 300);
+    // zem.html("Zemlja: " + masa.value() * 1 + "kg");
+    // //zem.style("color", "white");
+    // zem.style("font-size", "24pt");
+    // zem.position(20, 300);
   }else if(mars.over()){
    mrs.html("Mars: " +
     Number((masa.value() * 0.38).toFixed(2)) + " kg");
@@ -159,4 +166,11 @@ function mousePressed() {
   nep.style("font-size", "24pt");
   nep.position(20, 550);
   }
+}
+
+function doubleClicked(){
+ if(zemlja.over()){
+  canvasMoon.show()
+   canvas.hide()
+ }
 }
