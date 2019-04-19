@@ -131,6 +131,8 @@ function mousePressed() {
     ven.style("font-size", "24pt");
     ven.position(20, 250);
   }else if(zemlja.over()){
+    canvasMoon.show()
+     canvas.hide()
     // zem.html("Zemlja: " + masa.value() * 1 + "kg");
     // //zem.style("color", "white");
     // zem.style("font-size", "24pt");
@@ -168,9 +170,9 @@ function mousePressed() {
   }
 }
 
-function doubleClicked(){
- if(zemlja.over()){
-  canvasMoon.show()
-   canvas.hide()
- }
-}
+// function doubleClicked(){
+//  if(zemlja.over()){
+//   canvasMoon.show()
+//    canvas.hide()
+//  }
+// }
