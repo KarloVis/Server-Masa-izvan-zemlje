@@ -15,6 +15,7 @@ function Moon() {
     let d, d2;
 
     p.draw = function() {
+      p.textAlign(CENTER)
       p.imageMode(CENTER)
       //p.background(0);
       p.push();
@@ -33,13 +34,15 @@ function Moon() {
       p.push()
       p.textSize(20)
       p.fill(255)
-      p.text('BACK',800,50)
+      p.text('BACK', 825, 50)
       p.pop()
 
-      p.fill(200,50)
+
+
+      p.fill(200, 50)
       p.stroke(255);
       p.strokeWeight(2)
-      p.rect(790,25,75,35)
+      p.rect(790, 25, 75, 35)
 
 
       p.push()
@@ -55,25 +58,49 @@ function Moon() {
       //p.fill(220);
       p.image(moonimg, x, y, 100, 100)
 
+      if (zembool) {
+        p.push();
+        //p.translate(p.width / 2, p.height / 2)
+        p.textSize(50)
+        p.stroke(0)
+        p.fill(0, 255, 0)
+        p.text(Number((masa.value() * 1).toFixed(2)) + " kg", 0, 0)
+        p.pop();
+      }
+      if (moonbool) {
+        p.push();
+        //p.translate(p.width / 2, p.height / 2);
+        p.fill(0, 255, 0);
+        p.stroke(0);
+        p.textSize(30)
+        p.text(Number((masa.value() * 0.1653).toFixed(2)) + " kg", x, y)
+        p.pop();
+      }
+      p.pop()
+
+
+
       d = p.dist(x, y, p.mouseX, p.mouseY)
       d2 = p.dist(p.width / 2, p.height / 2, p.mouseX, p.mouseY)
     }
     p.mousePressed = function() {
       if (d > 610 && d < 660) {
+        moonbool = true;
+        // moon.html("Mjesec: " +
+        //   Number((masa.value() * 0.1653).toFixed(2)) + " kg");
+        // //moon.style("color", "white");
+        // moon.style("font-size", "24pt");
+        // moon.position(20, 600);
 
-        moon.html("Mjesec: " +
-          Number((masa.value() * 0.1653).toFixed(2)) + " kg");
-        //moon.style("color", "white");
-        moon.style("font-size", "24pt");
-        moon.position(20, 600);
-
-      } else if (d2 > 0 && d2 < 195) {
-        zem.html("Zemlja: " + masa.value() * 1 + "kg");
-        //zem.style("color", "white");
-        zem.style("font-size", "24pt");
-        zem.position(20, 300);
-      }else if(p.mouseX > 790 && p.mouseX < 865 && p.mouseY > 25 && p.mouseY < 60){
-       canvasMoon.hide()
+      } else if (d2 > 0 && d2 < 200) {
+        zembool = true;
+        // zem.html("Zemlja: " + masa.value() * 1 + "kg");
+        // //zem.style("color", "white");
+        // zem.style("font-size", "24pt");
+        // zem.position(20, 300);
+      } else if (p.mouseX > 790 && p.mouseX < 865
+                 && p.mouseY > 25 && p.mouseY < 60) {
+        canvasMoon.hide()
         canvas.show()
       }
     }

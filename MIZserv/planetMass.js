@@ -23,11 +23,11 @@ function errorCheck() {
 
     error.html("PLEASE ENTER A NUMBER");
     error.style("color", "red");
-    error.style("font-size", "30pt");
+    error.style("font-size", "20pt");
     error.position(20, 200)
 
   } else {
-    tablica();
+    //tablica();
   }
 }
 

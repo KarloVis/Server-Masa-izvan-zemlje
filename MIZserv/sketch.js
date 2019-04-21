@@ -1,9 +1,18 @@
-let btn, masa, txtmasa, test, error;
-let mercimg,venimg,zemimg,marsimg,jupimg,
-    satimg,uranimg,nepimg,sunimg,bg,moonimg;
+let btn, masa, txtmasa, test, error, checkbox;
+let mercimg, venimg, zemimg, marsimg, jupimg,
+  satimg, uranimg, nepimg, sunimg, bg, moonimg;
 
+let mercbool = false,
+  venbool = false,
+  zembool = false,
+  marsbool = false,
+  jupbool = false,
+  satbool = false,
+  uranbool = false,
+  nepbool = false,
+  moonbool = false;
 
-function preload(){
+function preload() {
   mercimg = loadImage('planet-images/merc.png')
   venimg = loadImage('planet-images/ven.png')
   zemimg = loadImage('planet-images/zem.png')
@@ -19,14 +28,18 @@ function preload(){
 
 function setup() {
   canvas = createCanvas(1300, 1300);
-  canvas.position(300, 0)
-  mooncanvas = new Moon();
-  canvasMoon.hide()
+  canvas.position(300, 0);
+  mooncanvas = new Moon()
+  canvasMoon.hide();
 
   txtmasa = createP("Unesite svoju masu:");
   txtmasa.style("font-size", "18pt");
-  btn = select('#btn');
+  // showmass = createP('Show mass:')
+  // showmass.style("font-size", "18pt");
+  //btn = select('#btn');
   masa = createInput("");
+  // checkbox = createCheckbox()
+
 
   merc = createP("");
   ven = createP("");
@@ -54,26 +67,59 @@ function draw() {
   push();
   translate(width / 2, height / 2)
   //background(0)
-  image(bg,0,0,width,height)
+  image(bg, 0, 0, width, height)
+
   txtmasa.position(30, 50)
-  btn.position(100, 150);
+  //btn.position(100, 150);
   masa.position(40, 125);
-  btn.mousePressed(errorCheck);
+  // checkbox.position(175, 204)
+  // showmass.position(40,175)
+  //btn.mousePressed(errorCheck);
+
   // fill(255, 255, 0);
   // noStroke();
-  image(sunimg,0,0,100,100)
+  image(sunimg, 0, 0, 100, 100)
   // ellipse(0, 0, 75, 75);
 
   let r = 150;
 
-//   for (let i = 0; i < 8; i++) {
-//     noFill();
-//     stroke(255);
-//     ellipse(0, 0, r);
-//     r += 100;
+  //     for (let i = 0; i < 8; i++) {
+  //       noFill();
+  //       stroke(255);
+  //       ellipse(0, 0, r);
+  //       r += 100;
 
-//   }
+  //     }
   pop();
+  // push();
+  // if(mercbool){
+  //  merkur.txt()
+  // }
+  // pop()
+
+/////////////////////////////////////////////////////////
+  /*if (checkbox.checked() == true) {
+    mercbool = true;
+    venbool = true;
+    zembool = true;
+    marsbool = true;
+    jupbool = true;
+    satbool = true;
+    uranbool = true;
+    nepbool = true;
+    moonbool = true;
+  } else if (checkbox.checked() == false) {
+    mercbool = false;
+    venbool = false;
+    zembool = false;
+    marsbool = false;
+    jupbool = false;
+    satbool = false;
+    uranbool = false;
+    nepbool = false;
+    moonbool = false;
+  }*/
+//////////////////////////////////////////////////////////
 
   push();
   translate(width / 2, height / 2)
@@ -81,9 +127,22 @@ function draw() {
   pop();
 
   push();
+  if (mercbool) {
+    merkur.txt()
+  }
+  pop()
+
+
+  push();
   translate(width / 2, height / 2)
   venera.show();
   pop();
+
+  push();
+  if (venbool) {
+    venera.txt()
+  }
+  pop()
 
   push();
   translate(width / 2, height / 2)
@@ -91,9 +150,22 @@ function draw() {
   pop();
 
   push();
+  if (zembool) {
+    zemlja.txt()
+  }
+  pop()
+
+
+  push();
   translate(width / 2, height / 2)
   mars.show();
   pop();
+
+  push();
+  if (marsbool) {
+    mars.txt()
+  }
+  pop()
 
   push();
   translate(width / 2, height / 2)
@@ -101,9 +173,21 @@ function draw() {
   pop();
 
   push();
+  if (jupbool) {
+    jupiter.txt()
+  }
+  pop()
+
+  push();
   translate(width / 2, height / 2)
   saturn.show();
   pop();
+
+  push();
+  if (satbool) {
+    saturn.txt()
+  }
+  pop()
 
   push();
   translate(width / 2, height / 2)
@@ -111,62 +195,82 @@ function draw() {
   pop();
 
   push();
+  if (uranbool) {
+    uran.txt()
+  }
+  pop()
+
+  push();
   translate(width / 2, height / 2)
   neptun.show();
   pop();
+
+  push();
+  if (nepbool) {
+    neptun.txt()
+  }
+  pop()
 
 }
 
 function mousePressed() {
   if (merkur.over()) {
-    merc.html("Merkur: " +
-      Number((masa.value() * 0.38).toFixed(2)) + " kg");
-    //merc.style("color", "white");
-    merc.style("font-size", "24pt");
-    merc.position(20, 200);
+    mercbool = true;
+    // merc.html("Merkur: " +
+    //   Number((masa.value() * 0.38).toFixed(2)) + " kg");
+    // //merc.style("color", "white");
+    // merc.style("font-size", "24pt");
+    // merc.position(20, 200);
   } else if (venera.over()) {
-    ven.html("Venera: " +
-      Number((masa.value() * 0.903).toFixed(2)) + " kg");
-    //ven.style("color", "white");
-    ven.style("font-size", "24pt");
-    ven.position(20, 250);
-  }else if(zemlja.over()){
+    venbool = true;
+    // ven.html("Venera: " +
+    //   Number((masa.value() * 0.903).toFixed(2)) + " kg");
+    // //ven.style("color", "white");
+    // ven.style("font-size", "24pt");
+    // ven.position(20, 250);
+  } else if (zemlja.over()) {
+    // zembool = true;
     canvasMoon.show()
-     canvas.hide()
-    // zem.html("Zemlja: " + masa.value() * 1 + "kg");
+    canvas.hide()
+    //   zem.html("Zemlja: " + masa.value() * 1 + "kg");
     // //zem.style("color", "white");
     // zem.style("font-size", "24pt");
     // zem.position(20, 300);
-  }else if(mars.over()){
-   mrs.html("Mars: " +
-    Number((masa.value() * 0.38).toFixed(2)) + " kg");
-  //mars.style("color", "white");
-  mrs.style("font-size", "24pt");
-  mrs.position(20, 350);
-  }else if(jupiter.over()){
-    jup.html("Jupiter: " +
-    Number((masa.value() * 2.6375).toFixed(2)) + " kg");
-  //jup.style("color", "white");
-  jup.style("font-size", "24pt");
-  jup.position(20, 400);
-  }else if(saturn.over()){
-    sat.html("Saturn: " +
-    Number((masa.value() * 1.16).toFixed(2)) + " kg");
-  //sat.style("color", "white");
-  sat.style("font-size", "24pt");
-  sat.position(20, 450);
-  }else if(uran.over()){
-    urn.html("Uran: " +
-    Number((masa.value() * 1.17).toFixed(2)) + " kg");
-  //uran.style("color", "white");
-  urn.style("font-size", "24pt");
-  urn.position(20, 500);
-  }else if(neptun.over()){
-    nep.html("Neptun: " +
-    Number((masa.value() * 1.125).toFixed(2)) + " kg");
-  //nep.style("color", "white");
-  nep.style("font-size", "24pt");
-  nep.position(20, 550);
+  } else if (mars.over()) {
+    marsbool = true;
+    // mrs.html("Mars: " +
+    //   Number((masa.value() * 0.38).toFixed(2)) + " kg");
+    // //mars.style("color", "white");
+    // mrs.style("font-size", "24pt");
+    // mrs.position(20, 350);
+  } else if (jupiter.over()) {
+    jupbool = true;
+    // jup.html("Jupiter: " +
+    //   Number((masa.value() * 2.6375).toFixed(2)) + " kg");
+    // //jup.style("color", "white");
+    // jup.style("font-size", "24pt");
+    // jup.position(20, 400);
+  } else if (saturn.over()) {
+    satbool = true;
+    // sat.html("Saturn: " +
+    //   Number((masa.value() * 1.16).toFixed(2)) + " kg");
+    // //sat.style("color", "white");
+    // sat.style("font-size", "24pt");
+    // sat.position(20, 450);
+  } else if (uran.over()) {
+    uranbool = true;
+    // urn.html("Uran: " +
+    //   Number((masa.value() * 1.17).toFixed(2)) + " kg");
+    // //uran.style("color", "white");
+    // urn.style("font-size", "24pt");
+    // urn.position(20, 500);
+  } else if (neptun.over()) {
+    nepbool = true;
+    // nep.html("Neptun: " +
+    //   Number((masa.value() * 1.125).toFixed(2)) + " kg");
+    // //nep.style("color", "white");
+    // nep.style("font-size", "24pt");
+    // nep.position(20, 550);
   }
 }
 

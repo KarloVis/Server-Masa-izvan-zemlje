@@ -1,6 +1,7 @@
 let r = 45;
 
 function Merkur() {
+  textAlign(CENTER)
   angleMode(DEGREES)
   imageMode(CENTER)
 
@@ -20,21 +21,32 @@ function Merkur() {
     this.x = this.x1
     this.y = this.y1
 
-    image(mercimg,this.x, this.y, r,r)
+    image(mercimg, this.x, this.y, r, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    //print(this.d)
+    return (this.d < 930 && this.d > 900)
   }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 0.38).toFixed(2)) + " kg", this.x, this.y);
+  }
+
 }
 
-function Venera(){
+function Venera() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 125;
+  this.x = 150;
   this.y = 0;
   this.x1;
   this.y1;
@@ -50,21 +62,30 @@ function Venera(){
     this.x = this.x1
     this.y = this.y1
 
-    image(venimg,this.x,this.y,r,r)
+    image(venimg, this.x, this.y, r, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
+  }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 0.903).toFixed(2)) + " kg", this.x, this.y);
   }
 }
 
-function Zemlja(){
+function Zemlja() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 175;
+  this.x = 225;
   this.y = 0;
   this.x1;
   this.y1;
@@ -80,21 +101,32 @@ function Zemlja(){
     this.x = this.x1
     this.y = this.y1
 
-    image(zemimg,this.x,this.y,r,r)
+    image(zemimg, this.x, this.y, r, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
   }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 1).toFixed(2)) + " kg", this.x, this.y);
+  }
+
+
 }
 
 function Mars() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 225;
+  this.x = 300;
   this.y = 0;
   this.x1;
   this.y1;
@@ -110,13 +142,22 @@ function Mars() {
     this.x = this.x1
     this.y = this.y1
 
-    image(marsimg,this.x,this.y,r,r)
+    image(marsimg, this.x, this.y, r, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY);
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
+  }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 0.38).toFixed(2)) + " kg", this.x, this.y);
   }
 }
 
@@ -124,7 +165,7 @@ function Jupiter() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 275;
+  this.x = 375;
   this.y = 0;
   this.x1;
   this.y1;
@@ -140,13 +181,22 @@ function Jupiter() {
     this.x = this.x1
     this.y = this.y1
 
-    image(jupimg,this.x,this.y,r,r)
+    image(jupimg, this.x, this.y, r, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
+  }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 2.6375).toFixed(2)) + " kg", this.x, this.y);
   }
 }
 
@@ -154,7 +204,7 @@ function Saturn() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 325;
+  this.x = 450;
   this.y = 0;
   this.x1;
   this.y1;
@@ -170,13 +220,22 @@ function Saturn() {
     this.x = this.x1
     this.y = this.y1
 
-    image(satimg,this.x,this.y,80,r)
+    image(satimg, this.x, this.y, 80, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
+  }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 1.16).toFixed(2)) + " kg", this.x, this.y);
   }
 }
 
@@ -184,7 +243,7 @@ function Uran() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 375;
+  this.x = 525;
   this.y = 0;
   this.x1;
   this.y1;
@@ -200,13 +259,22 @@ function Uran() {
     this.x = this.x1
     this.y = this.y1
 
-    image(uranimg,this.x,this.y,r,r)
+    image(uranimg, this.x, this.y, r, r)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
+  }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 1.17).toFixed(2)) + " kg", this.x, this.y);
   }
 }
 
@@ -214,7 +282,7 @@ function Neptun() {
   angleMode(DEGREES)
   imageMode(CENTER);
 
-  this.x = 425;
+  this.x = 600;
   this.y = 0;
   this.x1;
   this.y1;
@@ -230,12 +298,21 @@ function Neptun() {
     this.x = this.x1
     this.y = this.y1
 
-    image(nepimg,this.x,this.y,60,60)
+    image(nepimg, this.x, this.y, 60, 60)
 
   }
 
   this.over = function() {
     this.d = dist(this.x, this.y, mouseX, mouseY)
-    return(this.d < 640 && this.d > 620)
+    return (this.d < 930 && this.d > 900)
+  }
+
+  this.txt = function() {
+    push();
+    translate(width / 2, height / 2);
+    textSize(20);
+    stroke(0)
+    fill(0, 255, 0)
+    text(Number((masa.value() * 1.125).toFixed(2)) + " kg", this.x, this.y);
   }
 }
