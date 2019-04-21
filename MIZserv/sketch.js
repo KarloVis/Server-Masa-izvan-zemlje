@@ -19,7 +19,7 @@ function preload(){
 
 function setup() {
   canvas = createCanvas(1300, 1300);
-  canvas.position(430, 100)
+  canvas.position(300, 0)
   mooncanvas = new Moon();
   canvasMoon.hide()
 
