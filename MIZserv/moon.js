@@ -1,6 +1,6 @@
 let canvasMoon;
 
-function Mjesec() {
+function Moon() {
   let theta = 0.1001;
 
   let mooncnvs = function(p) {
