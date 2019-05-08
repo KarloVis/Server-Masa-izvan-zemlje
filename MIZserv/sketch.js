@@ -66,13 +66,12 @@ function draw() {
   //sphere()
   image(bg, 0, 0, width, height)
   txtmasa.position(30, 110)
-  txtmasa
-.style('color','white')
+  //txtmasa.style('color','white')
   // btn.position(100, 150);
   masa.position(40, 175);
   naslov.position(10,65)
   naslov.style('font-size','30px')
-  naslov.style('color','white')
+  //naslov.style('color','white')
   // btn.mousePressed(errorCheck);
   // fill(255, 255, 0);
   // noStroke();
