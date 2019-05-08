@@ -29,7 +29,7 @@ function preload() {
 function setup() {
   canvas = createCanvas(1300,1300);
   canvas.position(300,100);
-  mooncanvas = new Mjesec()
+  mooncanvas = new Moon()
   canvasMoon.hide();
   //naslov = createP('Masa izvan Zemlje')
   txtmasa = createP("Unesite svoju masu:");
