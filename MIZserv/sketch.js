@@ -1,4 +1,4 @@
-let btn, masa, txtmasa, test, error,/*naslov*/;
+let btn, masa, txtmasa, test, error,naslov;
 let mercimg, venimg, zemimg, marsimg, jupimg,
   satimg, uranimg, nepimg, sunimg, bg, moonimg;
 
@@ -28,10 +28,10 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(1300,1300);
-  canvas.position(300,100);
+  canvas.position(300,0);
   mooncanvas = new Moon()
   canvasMoon.hide();
-  //naslov = createP('Masa izvan Zemlje')
+  naslov = createP("Masa izvan Zemlje")
   txtmasa = createP("Unesite svoju masu:");
   txtmasa.style("font-size", "18pt");
   // btn = select('#btn');
@@ -65,13 +65,13 @@ function draw() {
   background(0)
   //sphere()
   image(bg, 0, 0, width, height)
-  txtmasa.position(30, 110)
-  //txtmasa.style('color','white')
+  txtmasa.position(30,50)
+  txtmasa.style('color','white')
   // btn.position(100, 150);
-  masa.position(40, 175);
-  //naslov.position(0,65)
- // naslov.style('font-size','25pt')
-  //naslov.style('color','white')
+  masa.position(40, 125);
+  naslov.position(0,0)
+  naslov.style('font-size','25pt')
+  naslov.style('color','white')
   // btn.mousePressed(errorCheck);
   // fill(255, 255, 0);
   // noStroke();
