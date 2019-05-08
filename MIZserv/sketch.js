@@ -69,8 +69,8 @@ function draw() {
   //txtmasa.style('color','white')
   // btn.position(100, 150);
   masa.position(40, 175);
-  naslov.position(10,65)
-  naslov.style('font-size','30px')
+  naslov.position(0,65)
+  naslov.style('font-size','25pt')
   //naslov.style('color','white')
   // btn.mousePressed(errorCheck);
   // fill(255, 255, 0);
