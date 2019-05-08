@@ -20,6 +20,7 @@ function Merkur() {
 
     this.x = this.x1
     this.y = this.y1
+    
 
     image(mercimg, this.x, this.y, r, r)
 
@@ -61,6 +62,7 @@ function Venera() {
 
     this.x = this.x1
     this.y = this.y1
+    
 
     image(venimg, this.x, this.y, r, r)
 
@@ -100,6 +102,7 @@ function Zemlja() {
 
     this.x = this.x1
     this.y = this.y1
+    
 
     image(zemimg, this.x, this.y, r, r)
 
@@ -141,6 +144,7 @@ function Mars() {
 
     this.x = this.x1
     this.y = this.y1
+    
 
     image(marsimg, this.x, this.y, r, r)
 
@@ -219,6 +223,7 @@ function Saturn() {
 
     this.x = this.x1
     this.y = this.y1
+  
 
     image(satimg, this.x, this.y, 80, r)
 
@@ -258,6 +263,7 @@ function Uran() {
 
     this.x = this.x1
     this.y = this.y1
+    
 
     image(uranimg, this.x, this.y, r, r)
 
@@ -297,6 +303,7 @@ function Neptun() {
 
     this.x = this.x1
     this.y = this.y1
+    
 
     image(nepimg, this.x, this.y, 60, 60)
 
