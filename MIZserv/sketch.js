@@ -1,4 +1,4 @@
-let btn, masa, txtmasa, test, error, checkbox;
+let btn, masa, txtmasa, test, error,naslov;
 let mercimg, venimg, zemimg, marsimg, jupimg,
   satimg, uranimg, nepimg, sunimg, bg, moonimg;
 
@@ -27,19 +27,15 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(1300, 1300);
-  canvas.position(300, 0);
-  mooncanvas = new Moon()
+  canvas = createCanvas(1300,1300);
+  canvas.position(300,100);
+  mooncanvas = new Mjesec()
   canvasMoon.hide();
-
+  naslov = createP('Masa izvan Zemlje')
   txtmasa = createP("Unesite svoju masu:");
   txtmasa.style("font-size", "18pt");
-  // showmass = createP('Show mass:')
-  // showmass.style("font-size", "18pt");
-  //btn = select('#btn');
+  // btn = select('#btn');
   masa = createInput("");
-  // checkbox = createCheckbox()
-
 
   merc = createP("");
   ven = createP("");
@@ -66,18 +62,22 @@ function setup() {
 function draw() {
   push();
   translate(width / 2, height / 2)
-  //background(0)
+  background(0)
+  //sphere()
   image(bg, 0, 0, width, height)
-
-  txtmasa.position(30, 50)
-  //btn.position(100, 150);
-  masa.position(40, 125);
-  // checkbox.position(175, 204)
-  // showmass.position(40,175)
-  //btn.mousePressed(errorCheck);
-
+  txtmasa.position(30, 110)
+  txtmasa
+.style('color','white')
+  // btn.position(100, 150);
+  masa.position(40, 175);
+  naslov.position(10,65)
+  naslov.style('font-size','30px')
+  naslov.style('color','white')
+  // btn.mousePressed(errorCheck);
   // fill(255, 255, 0);
   // noStroke();
+  // texture(sunimg)
+  // sphere(100)
   image(sunimg, 0, 0, 100, 100)
   // ellipse(0, 0, 75, 75);
 
@@ -93,33 +93,9 @@ function draw() {
   pop();
   // push();
   // if(mercbool){
-  //  merkur.txt()
+  //  merkur.txt() 
   // }
   // pop()
-
-/////////////////////////////////////////////////////////
-  /*if (checkbox.checked() == true) {
-    mercbool = true;
-    venbool = true;
-    zembool = true;
-    marsbool = true;
-    jupbool = true;
-    satbool = true;
-    uranbool = true;
-    nepbool = true;
-    moonbool = true;
-  } else if (checkbox.checked() == false) {
-    mercbool = false;
-    venbool = false;
-    zembool = false;
-    marsbool = false;
-    jupbool = false;
-    satbool = false;
-    uranbool = false;
-    nepbool = false;
-    moonbool = false;
-  }*/
-//////////////////////////////////////////////////////////
 
   push();
   translate(width / 2, height / 2)
@@ -276,7 +252,7 @@ function mousePressed() {
 
 // function doubleClicked(){
 //  if(zemlja.over()){
-//   canvasMoon.show()
+//   canvasMoon.show() 
 //    canvas.hide()
 //  }
 // }
