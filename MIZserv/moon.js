@@ -98,7 +98,7 @@ function Moon() {
         // //zem.style("color", "white");
         // zem.style("font-size", "24pt");
         // zem.position(20, 300);
-      } else if (p.mouseX > 790 && p.mouseX < 865
+      } else if (p.mouseX > 790 && p.mouseX < 865 
                  && p.mouseY > 25 && p.mouseY < 60) {
         canvasMoon.hide()
         canvas.show()
